@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Authors</h1>
+
+<table class="table table-sm">
+  <thead>
+    <tr class="table-dark">
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr scope="row">
+        <td><%= author.name %></td>
+        <td><%= link_to 'Show', author, class: "btn btn-light btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_author_path(author), class: "btn btn-light btn-sm" %></td>
+        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Author', new_author_path, class: "btn btn-primary" %>
