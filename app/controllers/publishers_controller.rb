@@ -8,6 +8,7 @@ class PublishersController < ApplicationController
 
   # GET /publishers/1 or /publishers/1.json
   def show
+    @books = Book.where(publisher_id: @publisher.id)
   end
 
   # GET /publishers/new

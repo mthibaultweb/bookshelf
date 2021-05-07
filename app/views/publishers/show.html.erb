@@ -1,9 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @publisher.name %>
-</p>
+<h1><%= @publisher.name %></h1>
 
-<%= link_to 'Edit', edit_publisher_path(@publisher), class: "btn btn-primary" %> |
-<%= link_to 'Back', publishers_path, class: "btn btn-secondary" %>
+<div class="row row-cols-2 row-cols-lg-3 row-cols-xl-4 g-4">
+  <% @books.each do |book| %>
+    <div class="col">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="<%= book.cover %>" class="cover" alt="Book's cover">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/books/<%= book.id %>" class="link-primary">
+            <%= book.title %>
+          </a></h5>
+              <p class="card-text"><small class="text-muted"><%= book.publisher.name %></small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Back to publishers', publishers_path, class: "btn btn-secondary" %>

@@ -48,12 +48,21 @@
       </div>
     </nav>
     
-    <div class="container-lg">
+    <div class="container-lg py-5">
+      <% if notice %>
+        <div class="alert alert-success" role="alert">
+          <p class="notice text-center"><%= notice %></p>
+        </div>
+      <%end %>
+
+      <% if alert %>
+      <div class="alert alert-danger" role="alert">
+          <p class="alert text-center"><%= alert %></p>
+        </div>
+      <%end %>
       
       <%= yield %>
-      
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+
     </div>
 
   </body>
