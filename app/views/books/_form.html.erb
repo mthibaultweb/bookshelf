@@ -1,10 +1,9 @@
 <%= simple_form_for @book do |f| %>
-  <%= f.input :title %>
-  <%= f.association :author, prompt: "Select the author" %>
-  <%= f.association :publisher, prompt: "Select the publisher" %>
-  <%= f.label(:release, :release) %>
-  <%= f.date_field :release, prompt: "Release date" %>
-  <%= f.input :description %>
-  <%= f.input :cover %>
+  <%= f.input :title, :required => true %>
+  <%= f.association :author, prompt: "Select the author", :required => true %>
+  <%= f.association :publisher, prompt: "Select the publisher", :required => true %>
+  <%= f.date_field :release, prompt: "Release date", :required => true %>
+  <%= f.input :description, :required => true %>
+  <%= f.input :cover, :required => true %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
