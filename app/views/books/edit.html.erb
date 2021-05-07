@@ -2,5 +2,9 @@
 
 <%= render 'form', book: @book %>
 
-<%= link_to 'Show', @book, class: "btn btn-primary"  %> |
-<%= link_to 'Back', books_path, class: "btn btn-secondary" %>
+<br>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+<%= link_to 'Show', @book, class: "btn btn-dark"  %>
+<%= link_to 'Back', books_path, class: "btn btn-outline-dark" %>
+</div>

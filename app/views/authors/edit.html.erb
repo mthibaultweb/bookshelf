@@ -2,5 +2,9 @@
 
 <%= render 'form', author: @author %>
 
-<%= link_to 'Show', @author, class: "btn btn-primary" %> |
-<%= link_to 'Back', authors_path, class: "btn btn-secondary" %>
+<br>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+<%= link_to 'Show', @author, class: "btn btn-dark" %>
+<%= link_to 'Back', authors_path, class: "btn btn-outline-dark" %>
+</div>

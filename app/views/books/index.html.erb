@@ -1,9 +1,5 @@
 <h1>Books</h1>
 
-<% if user_signed_in? %>
-  <%= link_to 'New Book', new_book_path, class: "btn btn-primary"  %>
-<% end %>
-
 <table class="table table-responsive-lg table-sm">
   <thead>
     <tr class="table-dark">
@@ -12,7 +8,9 @@
       <th>Publisher</th>
       <th>Release</th>
       <th>Description</th>
-      <th colspan="2"></th>
+      <% if user_signed_in? %>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -25,8 +23,12 @@
         <td><%= book.release %></td>
         <td><%= book.description %></td>
         <% if user_signed_in? %>
-          <td><%= link_to 'Edit', edit_book_path(book), class: "btn btn-light btn-sm" %></td>
-          <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <%= link_to 'Edit', edit_book_path(book), class: "btn btn-sm btn-dark" %>
+              <%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %>
+            </div>
+          </td>
         <% end %>
       </tr>
     <% end %>
@@ -34,7 +36,8 @@
 </table>
 
 <br>
+
 <% if user_signed_in? %>
-  <%= link_to 'New Book', new_book_path, class: "btn btn-primary"  %>
+  <%= link_to 'New Book', new_book_path, class: "btn btn-dark"  %>
 <% end %>
 

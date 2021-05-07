@@ -5,7 +5,7 @@
     <tr class="table-dark">
       <th>Name</th>
       <% if user_signed_in? %>
-      <th colspan="2"></th>
+      <th></th>
       <% end %>
     </tr>
   </thead>
@@ -15,8 +15,12 @@
       <tr scope="row">
         <td><%= link_to publisher.name, publisher, class: "link-dark" %>
         <% if user_signed_in? %>
-          <td><%= link_to 'Edit', edit_publisher_path(publisher), class: "btn btn-light btn-sm" %></td>
-          <td><%= link_to 'Destroy', publisher, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <%= link_to 'Edit', edit_publisher_path(publisher), class: "btn btn-sm btn-dark" %>
+              <%= link_to 'Delete', publisher, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %>
+            </div>
+          </td>
         <% end %>
       </tr>
     <% end %>
@@ -26,7 +30,5 @@
 <br>
 
 <% if user_signed_in? %>
-<%= link_to 'New Publisher', new_publisher_path, class: "btn btn-primary" %>
+<%= link_to 'New Publisher', new_publisher_path, class: "btn btn-dark" %>
 <% end %>
-
-        <td></td>
